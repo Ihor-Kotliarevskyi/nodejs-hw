@@ -4,7 +4,7 @@ import cors from 'cors';
 import pino from 'pino-http';
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = Number.parseInt(process.env.PORT, 10) || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -54,6 +54,9 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, (error) => {
+  if (error) {
+    throw error;
+  }
   console.log(`Server is running on port ${PORT}`);
 });
