@@ -19,7 +19,6 @@ app.use(cors());
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
-
 app.use(errorHandler);
 
 await connectMongoDB();

@@ -11,11 +11,13 @@ const noteSchema = new Schema(
     content: {
       type: String,
       required: false,
+      default: '',
       trim: true,
     },
     tag: {
       type: String,
       required: false,
+      default: 'Todo',
       enum: [
         'Work',
         'Personal',
