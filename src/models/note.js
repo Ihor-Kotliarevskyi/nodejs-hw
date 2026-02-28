@@ -40,8 +40,7 @@ const noteSchema = new Schema(
 noteSchema.index(
   { title: 'text', content: 'text' },
   {
-    title: 'NoteTitleTextIndex',
-    content: 'NoteContentTextIndex',
+    name: 'NoteTextIndex',
     weights: { title: 10, content: 7 },
     default_language: 'english',
   },

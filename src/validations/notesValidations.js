@@ -29,7 +29,7 @@ export const createNoteSchema = {
       'any.required': 'Title is required',
     }),
     content: Joi.string().messages({
-      'number.base': 'Content must be a string',
+      'string.base': 'Content must be a string',
     }),
     tag: Joi.string()
       .valid(...TAGS)
