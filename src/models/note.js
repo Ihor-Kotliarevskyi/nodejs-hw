@@ -1,5 +1,4 @@
-import { Schema } from 'mongoose';
-import { model } from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 const noteSchema = new Schema(
   {
@@ -35,6 +34,16 @@ const noteSchema = new Schema(
   {
     timestamps: true,
     versionKey: false,
+  },
+);
+
+noteSchema.index(
+  { title: 'text', content: 'text' },
+  {
+    title: 'NoteTitleTextIndex',
+    content: 'NoteContentTextIndex',
+    weights: { title: 10, content: 7 },
+    default_language: 'english',
   },
 );
 

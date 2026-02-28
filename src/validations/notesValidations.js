@@ -10,8 +10,8 @@ export const getAllNotesSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1),
     perPage: Joi.number().integer().min(5).max(20).default(10),
-    tag: Joi.string().valid(TAGS),
-    search: Joi.string(),
+    tag: Joi.string().valid(...TAGS),
+    search: Joi.string().trim().allow(''),
   }),
 };
 
@@ -32,10 +32,10 @@ export const createNoteSchema = {
       'number.base': 'Content must be a string',
     }),
     tag: Joi.string()
-      .valid(TAGS)
+      .valid(...TAGS)
       .messages({
         'string.base': 'Tag must be a string',
-        'any.only': `Gender must be one of: ${TAGS}`,
+        'any.only': `Tag must be one of: ${TAGS}`,
       }),
   }),
 };
@@ -53,10 +53,10 @@ export const updateNoteSchema = {
       'number.base': 'Content must be a string',
     }),
     tag: Joi.string()
-      .valid(TAGS)
+      .valid(...TAGS)
       .messages({
         'string.base': 'Tag must be a string',
-        'any.only': `Gender must be one of: ${TAGS}`,
+        'any.only': `Tag must be one of: ${TAGS}`,
       }),
   }).min(1),
 };
