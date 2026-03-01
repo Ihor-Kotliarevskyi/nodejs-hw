@@ -9,6 +9,7 @@ import { errors } from 'celebrate';
 import { errorHandler } from './middleware/errorHandler.js';
 
 import notesRoutes from './routes/notesRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const PORT = Number.parseInt(process.env.PORT, 10) || 3000;
@@ -17,6 +18,7 @@ app.use(logger);
 app.use(express.json());
 app.use(cors());
 
+app.use(authRoutes);
 app.use(notesRoutes);
 
 app.use(notFoundHandler);
