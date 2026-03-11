@@ -11,7 +11,6 @@ const userSchema = new Schema(
       default: 'https://ac.goit.global/fullstack/react/default-avatar.jpg',
     },
   },
-
   { timestamps: true },
 );
 

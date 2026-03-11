@@ -98,7 +98,7 @@ export const requestResetEmail = async (req, res) => {
   const user = await User.findOne({ email });
   if (!user) {
     return res.status(200).json({
-      message: 'If this email exists, a reset link has been sent',
+      message: 'Password reset email sent successfully',
     });
   }
 
@@ -139,6 +139,7 @@ export const resetPassword = async (req, res) => {
   const { password, token } = req.body;
 
   let payload;
+
   try {
     payload = jwt.verify(token, process.env.JWT_SECRET);
   } catch {
@@ -155,5 +156,5 @@ export const resetPassword = async (req, res) => {
 
   await Session.deleteMany({ userId: user._id });
 
-  res.status(200).json({ message: 'Password reset successfully. Please log in again.' });
+  res.status(200).json({ message: 'Password reset successfully' });
 };
