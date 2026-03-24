@@ -21,6 +21,7 @@ router.post('/auth/register', celebrate(registerUserSchema), registerUser);
 router.post('/auth/login', celebrate(loginUserSchema), loginUser);
 router.post('/auth/logout', logoutUser);
 router.post('/auth/refresh', refreshUserSession);
+router.get('/auth/session', refreshUserSession);
 router.post(
   '/auth/request-reset-email',
   celebrate(requestResetEmailSchema),
