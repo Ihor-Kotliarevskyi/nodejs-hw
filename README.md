@@ -1,4 +1,4 @@
-# 📝 Notes App — REST API Backend
+# 📝 Notes App - REST API Backend
 
 A RESTful backend service for managing personal notes with authentication, built as a learning project to practice Node.js backend development from scratch.
 
